@@ -22,6 +22,9 @@ def run_pipeline():
             "operatingDayFrom": start_date,
             "operatingDayTo": end_date})
             save_data(df, start_date, "ercot_load")
+            if os.path.exists(filepath):
+                print(f"Skipping {start_date} to {end_date} because it already exists")
+                continue
             print(f"Saved: {filename}")
             time.sleep(3)
 
