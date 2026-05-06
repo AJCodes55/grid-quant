@@ -84,8 +84,10 @@ def save_data(df, start_date, dataset_name):
 
 
 def run_pipeline():
-    for year in range(2018, 2025):
+    for year in range(2024, 2027):
         for month in range(1, 13):
+            if year == 2026 and month > 3:
+                break
             last_day = calendar.monthrange(year, month)[1]
             start_date = f"{year}-{month:02d}-01"
             end_date = f"{year}-{month:02d}-{last_day}"
